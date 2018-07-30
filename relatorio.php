@@ -3,8 +3,8 @@
   <tr>
     <th>Qtde Clientes</th>
     <th>Qtde Vendedores</th> 
-    <th>Media Salarial</th>
-	<th>Maior Venda</th>
+    <th>Media Salarial (R$)</th>
+	<th>Maior Venda (ID)</th>
 	<th>Pior Vendedor</th>
   </tr>
   <tr>
