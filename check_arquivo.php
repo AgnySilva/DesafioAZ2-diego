@@ -99,6 +99,8 @@
 			ID Maior venda: $idMaior
 			Pior Vendedor: $idPior";
 			
+			include "relatorio.php";
+			
 			$relatorio = pathinfo($fileName);
 			
 			$caminho_relatorio = "relatorio/".$relatorio['filename'].".done.".$relatorio['extension'];
