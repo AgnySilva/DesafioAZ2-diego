@@ -8,9 +8,11 @@
     <meta name="author" content="Agny Diego">
 
     <title>Desafio RZ2</title>
-	<!-- Chamada do Bootstrap -->
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
+	<!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!--script de validação do arquivo .dat -->
 	<script>
 	function verificaExtensao($input){
@@ -22,32 +24,49 @@
 			document.getElementById("btn_verificar").disabled = true;
 		}
 		else{
-			/*var arquivo = $input.files;
-			alert(arquivo);
-			$.post("check_arquivo2.php",{arquivo:arquivo},
-			function vTotal(resultado){
-				alert("teste");
-				$("#relatorio").html(resultado);
-			});*/
+			
 			document.getElementById("btn_verificar").disabled = false;
 		}
 	}
 	</script>
 </head>
 <body>
-	<div class="panel panel-body col-lg-10 col-lg-offset-1">
-		<form name="form_check" id="form_check" enctype="multipart/form-data" method="post" action="check_arquivo2.php">
-			<div class="form-group col-sm-12">
-				<label>Faça UPLOAD de seu arquivo <i>.dat</i> e verifique-o</label>
-				<input type="file" class="form-control" id="arquivo" name="arquivo" onchange="verificaExtensao(this)" required="required"/>
-				<div id="respP1"></div>
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header col-lg-6">
+                <a class="navbar-brand page-scroll pull-left" href="#page-top">Check .dat</a>
 				
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+	<div class="col-lg-10 bg-primary2 text-center col-lg-offset-1">
+		<div class="row mx-auto panel panel-default">
+			<div class="col-md-12">
+				<h4>Faça UPLOAD de seu arquivo <i>.dat</i> e verifique-o</h4>
+				<form class="form-horizontal" name="form_check" id="form_check" enctype="multipart/form-data" method="post" action="check_arquivo2.php">
+					<div class="form-group col-sm-12">
+						
+						<input type="file" class="form-control" id="arquivo" name="arquivo" onchange="verificaExtensao(this)" required="required"/>
+						<div id="respP1"></div>
+						
+					</div>
+					<div class="form-group col-sm-12 text-center">
+						<input type="submit" class="btn btn-primary" name="btn_verificar" id="btn_verificar" value="Verificar" />
+					</div>
+				</form>
 			</div>
-			<div class="form-group col-sm-12 text-center">
-				<input type="submit" class="btn btn-primary" name="btn_verificar" id="btn_verificar" value="Verificar" />
-			</div>
-		</form>
+			<div class="col-md-12 panel panel-body" id="relatorio"></div>
+		</div>		
 	</div>
-	<div class="panel panel-body col-sm-6" id="relatorio"></div>
+	<!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.1.3.js"></script>
 </body>
 </html>
