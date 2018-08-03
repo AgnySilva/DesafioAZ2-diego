@@ -1,7 +1,9 @@
 ﻿<?php
+	
+	$arquivo = $_FILES["arquivo"];
+	
 	require_once("funcoes.php");
 	$ler_arquivo = new arquivo();
-	$arquivo = $_FILES["arquivo"];
 	
 	if (!empty($arquivo["name"])) {
 		

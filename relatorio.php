@@ -1,6 +1,4 @@
-﻿<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<div class="form-group col-sm-10 col-lg-offset-1">
-	<h3>RELATÓRIO</h3>
+﻿	<h3>RELATÓRIO</h3>
 	<table class="table">
 	  <tr>
 		<th>Qtde Clientes</th>
@@ -22,4 +20,3 @@
 	<?php
 	echo"<p>Clique para visualizar o Arquivo: <a href='$caminho_relatorio'> $caminho_relatorio</a></p>";
 	?>
-</div>

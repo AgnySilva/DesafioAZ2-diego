@@ -14,21 +14,8 @@
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!--script de validação do arquivo .dat -->
-	<script>
-	function verificaExtensao($input){
-		var extPermitida = ['dat'];
-		var extArquivo = $input.value.split('.').pop();
-		if(typeof extPermitida.find(function(ext){ return extArquivo == ext; }) == 'undefined'){
-			alert("Extensão ."+extArquivo+" não é permitida!");
-			
-			document.getElementById("btn_verificar").disabled = true;
-		}
-		else{
-			
-			document.getElementById("btn_verificar").disabled = false;
-		}
-	}
-	</script>
+	<script type="text/javascript" src="script.js"></script>
+	
 </head>
 <body>
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -43,21 +30,24 @@
     </nav>
 	<div class="col-lg-10 bg-primary2 text-center col-lg-offset-1">
 		<div class="row mx-auto panel panel-default">
-			<div class="col-md-12">
+			<div class="col-md-5">
 				<h4>Faça UPLOAD de seu arquivo <i>.dat</i> e verifique-o</h4>
-				<form class="form-horizontal" name="form_check" id="form_check" enctype="multipart/form-data" method="post" action="check_arquivo2.php">
+				<form class="form-horizontal" name="form_check" id="form_check" enctype="multipart/form-data" method="post">
 					<div class="form-group col-sm-12">
 						
 						<input type="file" class="form-control" id="arquivo" name="arquivo" onchange="verificaExtensao(this)" required="required"/>
-						<div id="respP1"></div>
+						<label id="status"></label>
+						<progress id="progressBar" class="form-control" value="0" max="100"></progress>
 						
 					</div>
 					<div class="form-group col-sm-12 text-center">
-						<input type="submit" class="btn btn-primary" name="btn_verificar" id="btn_verificar" value="Verificar" />
+						<input type="button" class="btn btn-primary" name="btn_verificar" id="btn_verificar" value="Verificar" onclick="sendArquivo()" />
 					</div>
 				</form>
 			</div>
-			<div class="col-md-12 panel panel-body" id="relatorio"></div>
+			<div class="col-md-7" id="relatorio">
+				
+			</div>
 		</div>		
 	</div>
 	<!-- jQuery -->
