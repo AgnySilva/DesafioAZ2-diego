@@ -1,0 +1,50 @@
+<?php
+/**
+ * Evite usar "else", apenas se não tiver outra escolha.
+ * Instale o phpsniffer para checar seu codigo, ele scaneia
+ * tudo e te diz onde tem erros de escrita. De uma pesquisada
+ * online sobre.
+ *
+ * não precisa comentar tudo, lembre-se que será outro programador
+ * que vai ler.
+ *
+ * Leia:
+ * https://medium.com/web-engineering-vox/improving-code-quality-with-object-calisthenics-aa4ad67a61f1
+ * https://williamdurand.fr/2013/06/03/object-calisthenics/
+ *
+ * https://medium.com/prod-io/solid-principles-takeaways-ec0825a07247
+ * https://jokiruiz.com/software/solid-principles-php/
+ * https://code.tutsplus.com/pt/tutorials/solid-part-1-the-single-responsibility-principle--net-36074
+ *
+ */
+
+
+//Teste esse codigo, veja se funciona
+
+require_once("funcoes.php");
+
+$ler_arquivo = new arquivo();
+$arquivo = $_FILES["arquivo"];
+
+if (empty($arquivo["name"])) {
+	echo"Erro ao fazer UPLOAD do arquivo!";
+}
+
+// nome dado pelo servidor ao arquivo
+$tmpName = $arquivo['tmp_name'];
+
+$fileName = $arquivo['name'];
+$error = (int) $arquivo['error'];
+
+if ($error) {
+	//exibe erro caso haja erro ao enviar o arquivo
+	echo 'Problemas ao enviar o arquivo.';
+}
+
+//executa o move_uploaded_file enquanto verifica se este foi executado corretamente
+if (!move_uploaded_file($tmpName, 'arquivos/'.$fileName)) {
+	//exibe erro caso haja erro ao mover o arquivo
+	echo 'Problemas ao mover o arquivo.';
+}
+
+$func_arquivo = $ler_arquivo->lerArquivo($fileName);
